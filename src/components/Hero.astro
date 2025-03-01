@@ -1,15 +1,15 @@
 ---
 ---
-<section class="relative pt-32 pb-20 md:pt-40 overflow-hidden">
+<section class="relative pt-32 pb-20 md:pt-40 overflow-hidden hero-section">
   <div class="container-custom relative z-10">
     <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="slide-up">
+      <div class="slide-up" transition:animate="slide">
         <h1 class="mb-6 text-secondary-900 dark:text-white leading-tight">
           <span class="text-primary-600 dark:text-primary-400">Ultimate</span> SasS Template<br>
           for your bussiness.
         </h1>
         <p class="text-xl text-secondary-600 dark:text-secondary-300 mb-8 max-w-lg">
-          Sassify brings your ideas to life using design. We care about delivering value to thoughtful brands that want to grow sustainably.
+          Sassify is a modern, responsive, and feature-rich template designed to help you create a professional and engaging website for your business.
         </p>
         <div class="flex flex-wrap gap-4">
           <a href="#contact" class="btn-primary">
@@ -27,14 +27,58 @@
         </div>
       </div>
       
-      <div class="relative fade-in">
-        <!-- This section is intentionally left empty as per the image design -->
+      <div class="relative fade-in" transition:animate="fade">
+        <!-- Elephant SVG Hero Image -->
+        <div class="w-full max-w-lg mx-auto">
+          <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-xl">
+            <!-- Background elements -->
+            <circle cx="400" cy="300" r="250" fill="#f0f9ff" class="dark:fill-slate-800" />
+            <circle cx="550" cy="180" r="60" fill="#bae6fd" class="dark:fill-teal-800" opacity="0.6" />
+            <circle cx="200" cy="400" r="80" fill="#e0f2fe" class="dark:fill-slate-700" opacity="0.7" />
+            
+            <!-- Elephant body -->
+            <ellipse cx="400" cy="340" rx="180" ry="140" fill="#64748b" class="dark:fill-slate-600" />
+            
+            <!-- Head -->
+            <ellipse cx="250" cy="280" rx="100" ry="90" fill="#64748b" class="dark:fill-slate-600" />
+            
+            <!-- Ears -->
+            <ellipse cx="280" cy="220" rx="80" ry="70" fill="#94a3b8" class="dark:fill-slate-500" />
+            <ellipse cx="220" cy="220" rx="80" ry="70" fill="#64748b" class="dark:fill-slate-600" />
+            <ellipse cx="280" cy="220" rx="60" ry="50" fill="#64748b" class="dark:fill-slate-600" />
+            <ellipse cx="220" cy="220" rx="60" ry="50" fill="#475569" class="dark:fill-slate-700" />
+            
+            <!-- Trunk -->
+            <path d="M200 320 Q180 380 160 440 Q150 480 180 500 Q210 510 220 480 Q230 450 220 420 Q210 390 230 350 Q240 330 250 320" fill="#64748b" class="dark:fill-slate-600" />
+            
+            <!-- Eyes -->
+            <circle cx="220" cy="260" r="10" fill="#1e293b" class="dark:fill-white" />
+            <circle cx="222" cy="258" r="3" fill="white" class="dark:fill-slate-300" />
+            
+            <!-- Tusks -->
+            <path d="M180 340 Q170 360 160 380" stroke="white" stroke-width="10" fill="none" class="dark:stroke-slate-300" />
+            <path d="M160 340 Q150 360 140 380" stroke="white" stroke-width="10" fill="none" class="dark:stroke-slate-300" />
+            
+            <!-- Legs -->
+            <rect x="320" y="440" width="40" rx="20" ry="20" height="100" fill="#475569" class="dark:fill-slate-700" />
+            <rect x="440" y="440" width="40" rx="20" ry="20" height="100" fill="#475569" class="dark:fill-slate-700" />
+            <rect x="360" y="460" width="40" rx="20" ry="20" height="80" fill="#475569" class="dark:fill-slate-700" />
+            <rect x="400" y="460" width="40" rx="20" ry="20" height="80" fill="#475569" class="dark:fill-slate-700" />
+            
+            <!-- Tail -->
+            <path d="M570 340 Q590 320 600 340 Q610 360 590 380" stroke="#475569" stroke-width="8" fill="none" class="dark:stroke-slate-700" />
+            
+            <!-- Decorative elements -->
+            <circle cx="400" cy="300" r="220" stroke="#0ea5e9" stroke-width="5" fill="none" class="dark:stroke-teal-500" stroke-dasharray="15,10" />
+            <text x="550" y="150" font-family="Arial" font-size="24" fill="#0ea5e9" class="dark:fill-teal-400" font-weight="bold">SASSIFY</text>
+          </svg>
+        </div>
       </div>
     </div>
   </div>
   
   <!-- Teal section at the bottom with Trusted By -->
-  <div class="mt-10 w-full overflow-hidden -z-10">
+  <div class="mt-10 w-full overflow-hidden -z-10" transition:animate="slide">
     <div class="relative bg-teal-400 dark:bg-teal-500 py-12 md:py-16">
       <div class="container-custom">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -48,16 +92,16 @@
             <p class="text-sm uppercase tracking-wider text-teal-800 dark:text-teal-800 font-medium mb-4">TRUSTED BY</p>
             <div class="flex flex-wrap justify-start md:justify-end gap-x-8 gap-y-4">
               <div class="h-8 flex items-center">
-                <span class="text-black dark:text-black font-medium">CHARM</span>
+                <span class="text-black dark:text-black font-medium">Google</span>
               </div>
               <div class="h-8 flex items-center">
-                <span class="text-black dark:text-black font-medium">Transcend</span>
+                <span class="text-black dark:text-black font-medium">Apple</span>
               </div>
               <div class="h-8 flex items-center">
-                <span class="text-black dark:text-black font-medium">beebole</span>
+                <span class="text-black dark:text-black font-medium">Beebole</span>
               </div>
               <div class="h-8 flex items-center">
-                <span class="text-black dark:text-black font-medium">deliverect</span>
+                <span class="text-black dark:text-black font-medium">Deliverect</span>
               </div>
             </div>
           </div>
