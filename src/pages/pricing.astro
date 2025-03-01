@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import PricingCmp from '../components/Pricing.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Pricing - SaaSify">
+  <Header />
+  <main>
+    <div class="pt-32 pb-8 md:pt-40 md:pb-12">
+      <div class="container-custom text-center">
+        <h1 class="mb-6 text-gray-900 dark:text-white">Simple, Transparent <span class="text-primary-600 dark:text-primary-400">Pricing</span></h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Choose the plan that works best for your business. All plans include a 14-day free trial with no credit card required.
+        </p>
+      </div>
+    </div>
+    <PricingCmp />
+    <Newsletter />
+  </main>
+  <Footer />
+</Layout>
