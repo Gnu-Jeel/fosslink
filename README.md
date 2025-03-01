@@ -1,34 +1,37 @@
-# Astro Starter Kit: Basics
+# Astro Sassify Template
 
-```sh
-npm create astro@latest -- --template basics
-```
+A modern, responsive Astro template with Tailwind CSS and Alpine.js integration. This template provides a solid foundation for building fast, SEO-friendly websites with a clean design system.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🚀 Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [Astro](https://astro.build/) - The web framework for content-driven websites
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Alpine.js](https://alpinejs.dev/) - Lightweight JavaScript framework for interactivity
+- Responsive design system with custom color palette
+- Dark mode support
+- Smooth page transitions
+- Performance optimized
+- SEO-friendly
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## 📦 Project Structure
 
 ```text
 /
-├── public/
+├── public/             # Static assets
 │   └── favicon.svg
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/         # Images and other assets
+│   ├── components/     # Reusable UI components
+│   ├── layouts/        # Page layouts
+│   ├── pages/          # Page routes
+│   ├── scripts/        # JavaScript utilities
+│   └── styles/         # Global styles
+│       ├── global.css
+│       └── transitions.css
+├── astro.config.mjs    # Astro configuration
+├── tailwind.config.mjs # Tailwind CSS configuration
+└── package.json        # Project dependencies
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
@@ -43,6 +46,46 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 🎨 Customization
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Colors
+
+The template includes a custom color palette defined in `tailwind.config.mjs`:
+
+- Primary: Purple-based color scheme
+- Secondary: Slate-based color scheme
+- Accent: Lime-based color scheme
+- Warning: Yellow-based color scheme
+
+You can customize these colors by editing the `tailwind.config.mjs` file.
+
+### Typography
+
+The template uses the following font families:
+
+- Sans: Inter (with system fallbacks)
+- Display: Lexend (with system fallbacks)
+
+### Animations
+
+Custom animations are included:
+- Fade In
+- Slide Up
+- Slide Down
+
+## 🚀 Getting Started
+
+1. Clone this repository
+2. Install dependencies with `npm install` or `pnpm install`
+3. Start the development server with `npm run dev` or `pnpm dev`
+4. Visit `http://localhost:4321` to see your site
+
+## 📝 License
+
+MIT
+
+## 👀 Learn More
+
+- [Astro Documentation](https://docs.astro.build)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Alpine.js Documentation](https://alpinejs.dev/start-here)
