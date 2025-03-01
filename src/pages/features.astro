@@ -340,16 +340,31 @@ import Footer from '../components/Footer.astro';
 </style>
 
 <script>
+  // Store references to event listeners for cleanup
+  const cleanupFunctions: Array<() => void> = [];
+
+  // Function to initialize all interactive features
+  function initializeFeatures() {
+    // Initialize Parallax Effect
+    initializeParallax();
+    
+    // Initialize Particle Animation
+    initializeParticles();
+    
+    // Initialize Interactive Demo Canvas
+    initializeCanvas();
+  }
+
   // Parallax Effect
-  document.addEventListener('DOMContentLoaded', () => {
+  function initializeParallax() {
     const parallaxContainer = document.querySelector('.parallax-demo');
     if (parallaxContainer) {
       const layers = parallaxContainer.querySelectorAll('.parallax-layer');
       
-      parallaxContainer.addEventListener('mousemove', (e) => {
+      const handleMouseMove = (e: MouseEvent) => {
         const containerRect = parallaxContainer.getBoundingClientRect();
-        const relX = (e as MouseEvent).clientX - containerRect.left;
-        const relY = (e as MouseEvent).clientY - containerRect.top;
+        const relX = e.clientX - containerRect.left;
+        const relY = e.clientY - containerRect.top;
         
         const xPercent = relX / containerRect.width - 0.5;
         const yPercent = relY / containerRect.height - 0.5;
@@ -361,18 +376,30 @@ import Footer from '../components/Footer.astro';
           
           (layer as HTMLElement).style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
         });
-      });
+      };
       
-      parallaxContainer.addEventListener('mouseleave', () => {
+      const handleMouseLeave = () => {
         layers.forEach((layer) => {
           (layer as HTMLElement).style.transform = 'translate3d(0, 0, 0)';
         });
+      };
+      
+      // Use type assertion to fix TypeScript errors
+      (parallaxContainer as HTMLElement).addEventListener('mousemove', handleMouseMove);
+      (parallaxContainer as HTMLElement).addEventListener('mouseleave', handleMouseLeave);
+      
+      // Add cleanup function
+      cleanupFunctions.push(() => {
+        if (parallaxContainer) {
+          (parallaxContainer as HTMLElement).removeEventListener('mousemove', handleMouseMove);
+          (parallaxContainer as HTMLElement).removeEventListener('mouseleave', handleMouseLeave);
+        }
       });
     }
-  });
+  }
 
   // Particle Animation
-  document.addEventListener('DOMContentLoaded', () => {
+  function initializeParticles() {
     const particlesContainer = document.querySelector('.particles-container');
     const particlesElement = document.querySelector('.particles');
     
@@ -427,11 +454,18 @@ import Footer from '../components/Footer.astro';
         }
       `;
       document.head.appendChild(style);
+      
+      // Add cleanup function
+      cleanupFunctions.push(() => {
+        if (style && document.head.contains(style)) {
+          document.head.removeChild(style);
+        }
+      });
     }
-  });
+  }
 
   // Interactive Demo Canvas
-  document.addEventListener('DOMContentLoaded', () => {
+  function initializeCanvas() {
     const canvas = document.getElementById('demo-canvas') as HTMLCanvasElement;
     const demoButton = document.getElementById('demo-button') as HTMLButtonElement;
     
@@ -439,6 +473,7 @@ import Footer from '../components/Footer.astro';
       const ctx = canvas.getContext('2d');
       let isActive = false;
       let particles: Array<Particle> = [];
+      let animationFrameId: number | null = null;
       
       // Resize canvas to match container
       const resizeCanvas = () => {
@@ -508,11 +543,11 @@ import Footer from '../components/Footer.astro';
           }
         }
         
-        requestAnimationFrame(animate);
+        animationFrameId = requestAnimationFrame(animate);
       }
       
       // Event listeners
-      demoButton.addEventListener('click', () => {
+      const handleButtonClick = () => {
         isActive = !isActive;
         canvas.style.opacity = isActive ? '1' : '0.5';
         canvas.style.pointerEvents = isActive ? 'auto' : 'none';
@@ -520,10 +555,13 @@ import Footer from '../components/Footer.astro';
         
         if (isActive) {
           animate();
+        } else if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
         }
-      });
+      };
       
-      canvas.addEventListener('mousemove', (e: MouseEvent) => {
+      const handleMouseMove = (e: MouseEvent) => {
         if (!isActive) return;
         
         const rect = canvas.getBoundingClientRect();
@@ -533,9 +571,9 @@ import Footer from '../components/Footer.astro';
         for (let i = 0; i < 3; i++) {
           particles.push(new Particle(x, y));
         }
-      });
+      };
       
-      canvas.addEventListener('click', (e: MouseEvent) => {
+      const handleClick = (e: MouseEvent) => {
         if (!isActive) return;
         
         const rect = canvas.getBoundingClientRect();
@@ -545,7 +583,51 @@ import Footer from '../components/Footer.astro';
         for (let i = 0; i < 20; i++) {
           particles.push(new Particle(x, y, `hsl(${Math.random() * 60 + 40}, 100%, 60%)`));
         }
+      };
+      
+      demoButton.addEventListener('click', handleButtonClick);
+      canvas.addEventListener('mousemove', handleMouseMove);
+      canvas.addEventListener('click', handleClick);
+      
+      // Add cleanup function
+      cleanupFunctions.push(() => {
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+        
+        window.removeEventListener('resize', resizeCanvas);
+        
+        if (demoButton) {
+          demoButton.removeEventListener('click', handleButtonClick);
+        }
+        
+        if (canvas) {
+          canvas.removeEventListener('mousemove', handleMouseMove);
+          canvas.removeEventListener('click', handleClick);
+        }
+        
+        // Clear particles array
+        particles = [];
       });
     }
+  }
+  
+  // Initialize features on initial page load
+  document.addEventListener('DOMContentLoaded', initializeFeatures);
+  
+  // Initialize features when navigating to this page with Astro's view transitions
+  document.addEventListener('astro:page-load', initializeFeatures);
+  
+  // Cleanup when page is unloaded or before navigation
+  document.addEventListener('astro:before-swap', () => {
+    // Execute all cleanup functions
+    cleanupFunctions.forEach(cleanup => cleanup());
+    // Clear the array
+    cleanupFunctions.length = 0;
+  });
+  
+  // Also clean up on window unload as a fallback
+  window.addEventListener('unload', () => {
+    cleanupFunctions.forEach(cleanup => cleanup());
   });
 </script>
