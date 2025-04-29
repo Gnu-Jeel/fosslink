@@ -120,7 +120,7 @@ import HeroSection from '../components/HeroSection.astro';
               Leadership Team
             </span>
              {/* Updated Headline */}
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Meet the Founder</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Meet the Founders</h2>
              {/* Updated Paragraph */}
             <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Our leadership brings technical expertise and a passion for creating smarter, simpler homes.
@@ -128,41 +128,59 @@ import HeroSection from '../components/HeroSection.astro';
           </div>
           
           {/* --- TODO: Update with real founder(s) info. Add/remove blocks as needed --- */}
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8 justify-center"> {/* Adjusted grid and added justify-center */}
+          {/* --- Leadership Team Grid --- */}
+          {/* Use justify-items-center for better alignment when items wrap */}
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"> 
             
-            {/* Example Founder 1 - Modify/Duplicate/Remove */}
-            <div class="text-center"> {/* Control spanning */}
+            {/* Founder 1: Jeel Desai */}
+            {/* Mobile: order-first makes this appear top */}
+            {/* Large Screens: lg:order-2 places it in the middle */}
+            <div class="text-center order-first lg:order-2"> 
               <div class="rounded-full overflow-hidden w-32 h-32 mx-auto mb-4 shadow-lg">
-                <img src="https://lh3.googleusercontent.com/pw/AP1GczMuooq31x1Bm2Q7MPqsRuuKZf9yIz56xYHY64INMmWYPeIGmbfrn-8vVBhEWhaCiC2_AexEr_R8R8UntAKt1Ev2BvG3-tosO-e-E0rERqLD2YWnLx2pn4zQzPmlLTtxVcCqACfp1bcV6X-EGfrgRpV-Xg=w1118-h1490-s-no-gm?authuser=0" alt="Jeel Desai: Founder of Fosslink" class="w-full h-full object-cover" />
+                {/* TODO: Replace with Jeel's actual picture URL */}
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczMuooq31x1Bm2Q7MPqsRuuKZf9yIz56xYHY64INMmWYPeIGmbfrn-8vVBhEWhaCiC2_AexEr_R8R8UntAKt1Ev2BvG3-tosO-e-E0rERqLD2YWnLx2pn4zQzPmlLTtxVcCqACfp1bcV6X-EGfrgRpV-Xg=w1118-h1490-s-no-gm?authuser=0" alt="Jeel Desai: Founder & CTO of Fosslink" class="w-full h-full object-cover" />
               </div>
               <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">Jeel Desai</h3>
-              <p class="text-primary-600 dark:text-primary-400 mb-2"><a href="https://jeeldesai.com">Founder</a></p>
-            </div>
-            
-            {/* Example Founder 2 - Remove or Modify */}
-            {/* <div class="text-center sm:col-span-1 lg:col-span-1">
-              <div class="rounded-full overflow-hidden w-32 h-32 mx-auto mb-4 shadow-lg">
-                <img src="https://placehold.co/200x200/CCCCCC/333?text=Co-Founder" alt="[Co-Founder's Name]" class="w-full h-full object-cover" />
-              </div>
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">[Co-Founder's Name]</h3>
-              <p class="text-primary-600 dark:text-primary-400 mb-2">[Co-Founder's Title]</p>
-              <p class="text-gray-600 dark:text-gray-300 text-sm">
-                [Brief bio highlighting relevant experience or role.]
+              {/* Suggest using the CTO title discussed before */}
+              <p class="text-primary-600 dark:text-primary-400 mb-2">
+                 <a href="https://jeeldesai.com" target="_blank" rel="noopener noreferrer">Founder & Core Software</a>
               </p>
-            </div> */}
-            
-            {/* Example Founder 3 - Remove or Modify */}
-             {/* <div class="text-center sm:col-span-1 lg:col-span-1">
-               <div class="rounded-full overflow-hidden w-32 h-32 mx-auto mb-4 shadow-lg">
-                 <img src="https://placehold.co/200x200/CCCCCC/333?text=Team+Lead" alt="[Team Lead's Name]" class="w-full h-full object-cover" />
-               </div>
-               <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">[Team Lead's Name]</h3>
-               <p class="text-primary-600 dark:text-primary-400 mb-2">[Team Lead's Title]</p>
-               <p class="text-gray-600 dark:text-gray-300 text-sm">
-                 [Brief bio highlighting relevant experience or role.]
-               </p>
-             </div> */}
+              {/* Optional: Add short bio here */}
+              {/* <p class="text-gray-600 dark:text-gray-300 text-sm">Jeel combines deep software expertise with hands-on hardware knowledge to architect Fosslink's core technology.</p> */}
+            </div>
+
+            {/* Founder 2: Nilesh Gojiya */}
+            {/* Mobile: Follows Jeel (default order) */}
+            {/* Large Screens: lg:order-1 places it first (left) */}
+            <div class="text-center lg:order-1"> 
+              <div class="rounded-full overflow-hidden w-32 h-32 mx-auto mb-4 shadow-lg">
+                 {/* TODO: Replace with Nilesh's actual picture URL */}
+                <img src="https://i.imgur.com/ZlB0alM.jpeg" alt="Nilesh Gojiya - Co-Founder, Head of Growth" class="w-full h-full object-cover" />
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">Nilesh Gojiya</h3>
+               {/* Suggest using Head of Growth title */}
+              <p class="text-primary-600 dark:text-primary-400 mb-2">Co-founder & Head of Growth</p>
+              {/* Optional: Add short bio here */}
+               {/* <p class="text-gray-600 dark:text-gray-300 text-sm">Nilesh drives our market strategy and connects Fosslink solutions with homeowners across Ahmedabad.</p> */}
+            </div>
+
+            {/* Founder 3: Urvish Patel */}
+            {/* Mobile: Follows Nilesh (default order) */}
+            {/* Large Screens: lg:order-3 places it third (right) */}
+            <div class="text-center lg:order-3">
+              <div class="rounded-full overflow-hidden w-32 h-32 mx-auto mb-4 shadow-lg">
+                {/* TODO: Replace with Urvish's actual picture URL */}
+                <img src="https://i.imgur.com/rZcpYYr.jpeg" alt="Urvish Patel - Co-Founder, Lead Web Developer" class="w-full h-full object-cover" />
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">Urvish Patel</h3>
+              {/* Suggest using Lead Web Developer title */}
+              <p class="text-primary-600 dark:text-primary-400 mb-2">Co-founder & Lead Web Developer</p>
+               {/* Optional: Add short bio here */}
+              {/* <p class="text-gray-600 dark:text-gray-300 text-sm">Urvish leads the development of our intuitive web and mobile application interfaces.</p> */}
+            </div>
+                       
           </div>
+          {/* --- End Leadership Team Grid --- */}
         </div>
       
       </div>
