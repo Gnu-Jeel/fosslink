@@ -1,6 +1,6 @@
-# Astro Sassify Template
+# Fosslink 
 
-A modern, responsive Astro template with Tailwind CSS and Alpine.js integration. This template provides a solid foundation for building fast, SEO-friendly websites with a clean design system.
+A modern, responsive Astro website with Tailwind CSS and Alpine.js integration.
 
 ## 🚀 Features
 

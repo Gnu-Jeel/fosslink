@@ -36,6 +36,18 @@
   }
 }
 
+/* === CSS for Infinite Icon Slider === */
+
+@keyframes scrollLogos {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Translate leftwards by the width of the *first* set of logos */
+    transform: translateX(-50%);
+  }
+}
+
 /* Element-specific transitions */
 main {
   view-transition-name: main-content;
@@ -98,3 +110,13 @@ footer {
   transform: translateX(100%);
   transition: transform 0.5s ease-in;
 } 
+
+.animate-scrollLogos {
+  /* Adjust duration for speed */
+  animation: scrollLogos 50ms linear infinite; /* Example: 40 seconds */
+}
+
+/* Pause animation when hovering the slider container */
+.group:hover .animate-scrollLogos {
+  animation-play-state: paused;
+}

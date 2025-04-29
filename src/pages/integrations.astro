@@ -3,218 +3,77 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeroSection from '../components/HeroSection.astro';
+
+const integrations = [
+  { name: "Amazon Alexa", description: "Control your Fosslink system using Amazon Alexa voice commands and routines.", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Amazon_Alexa_blue_logo.svg", category: "Voice Assistant" },
+  { name: "Google Assistant", description: "Use Google Assistant for voice control of your smart home devices through Fosslink.", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Google_Assistant_logo.svg", category: "Voice Assistant" },
+  { name: "Apple Home", description: "Integrate Fosslink with Apple HomeKit for control via Siri and the Apple Home app.", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Apple_HomeKit_logo.svg", category: "Platform" },
+  { name: "Samsung SmartThings", description: "Link Fosslink with Samsung SmartThings devices and existing automations.", logoUrl: "https://static.wikia.nocookie.net/logopedia/images/1/1e/SmartThings_2024_icon.svg", category: "Platform" },
+  { name: "Philips Hue", description: "Control your Hue smart lights, bulbs, and accessories within Fosslink scenes.", logoUrl: "https://play-lh.googleusercontent.com/FUlW6h3cACamheiCHH1cE67irohAZq_dJ92irK92cryKwHUtY6ZTSv5d041qPZ9UOt3n=w480-h960-rw", category: "Lighting" },
+  { name: "WiZ Connected", description: "Manage your WiZ smart lights and integrate them into Fosslink routines.", logoUrl: "https://play-lh.googleusercontent.com/jhmzIodqBLQQUD2sJF_O6oawa04ocDFfQIgoH0rPOXQY3V1uVz0-FJvEieFjVO-kcJ8=w480-h960-rw", category: "Lighting" },
+  { name: "Zigbee", description: "Connect compatible Zigbee sensors, lights, switches, and other devices directly.", logoUrl: "https://img.icons8.com/?size=512&id=80168&format=png", category: "Protocol" },
+  { name: "BMW ConnectedDrive", description: "Connect with your BMW for location-based automation triggers or vehicle status checks.", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg", category: "Automotive" },
+  { name: "Matter (via Thread/WiFi)", description: "Support for compatible devices using the new Matter standard over Thread or WiFi.", logoUrl: "https://images.seeklogo.com/logo-png/47/1/matter-icon-logo-png_seeklogo-477960.png", category: "Protocol" },
+  { name: "LG SmartThinQ", description: "Control compatible LG smart appliances or TVs through Fosslink automations.", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/2/20/LG_symbol.svg", category: "Appliances" },
+  { name: "Tuya / Smart Life", description: "Integrate compatible Tuya/Smart Life devices into your local Fosslink system.", logoUrl: "https://companieslogo.com/img/orig/TUYA-98c28564.svg", category: "Platform" },
+  { name: "Ring", description: "Integrate Ring cameras and doorbells for enhanced security views and automation triggers.", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Ring_logo.svg", category: "Security" },
+  { name: "ESPHome", description: "Connect and control your custom DIY ESPHome devices, sensors, and automations.", logoUrl: "https://esphome.io/_static/favicon.ico", category: "DIY/Developer" },
+  { name: "MQTT", description: "Utilize the standard MQTT protocol for flexible integration with custom devices and services.", logoUrl: "https://avatars.githubusercontent.com/u/1544528?v=4", category: "Protocol" },
+  { name: "Z-Wave", description: "Integrate Z-Wave devices like smart locks, sensors, and thermostats into your system.", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/3/34/Z-Wave_logo.svg", category: "Protocol" },
+  { name: "Shelly", description: "Integrate and control Shelly smart relays, plugs, and sensors known for versatility and local control options.", logoUrl: "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/032022/shelly.png", category: "Relays/DIY" },
+  { name: "Google Cast", description: "Cast audio or control playback on Chromecast and Google Nest devices directly from Fosslink automations.", logoUrl: "https://brandlogo.org/wp-content/uploads/2024/06/Google-Cast-Icon-300x300.png", category: "Entertainment" },
+  { name: "Sonos", description: "Integrate your Sonos speakers for multi-room audio control within Fosslink scenes and automations.", logoUrl: "https://static-00.iconduck.com/assets.00/apps-sonos-icon-2048x2048-gj40k2td.png", category: "Audio" },
+  { name: "Lutron", description: "Control Lutron Caséta & RA smart lighting, shades, and switches seamlessly through the Fosslink system.", logoUrl: "https://play-lh.googleusercontent.com/Q0IzDZBAHM5kPvjon5XsLURe7Gg8XJFQb-8cHK_VQ4WdV6wqFS7CSlfXhzVGg85g4lI=w480-h960-rw", category: "Lighting" },
+  { name: "KNX", description: "Connect Fosslink with robust KNX wired automation systems for seamless control in high-end installations.", logoUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c2/KNX_logo.svg", category: "Protocol/Wired" },
+];
+
 ---
 
-<Layout title="Integrations - Sassify">
+<Layout title="Smart Home Integrations (Google, Alexa) | Ahmedabad | Fosslink" description="See which smart home devices and platforms like Google Home, Amazon Alexa, and Apple HomeKit integrate with Fosslink's automation solutions.">
   <Header />
   <main>
     <HeroSection 
-      title="Integrations & API" 
-      highlightText="Integrations"
-      description="Connect Sassify with your favorite tools and services to streamline your workflow."
+      title="Our Integrations" 
+      highlightText=" Connects"
+      description="Connect with the smart devices and platforms you already use and love."
     />
+    {/* --- End Hero Section --- */}
     
-    <section class="py-16 bg-white dark:bg-gray-800">
-      <div class="container-custom">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Connect With Your Favorite Tools</h2>
+    <section class="py-16 md:py-24 bg-white dark:bg-gray-800">
+      <div class="container-custom mx-auto px-4"> {/* Applied container classes */}
+        <div class="text-center mb-12 md:mb-16">
+          {/* Updated Intro Text */}
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Connect Your Smart Home World</h2>
           <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Sassify integrates with over 50 popular tools and services to help you create seamless workflows and maximize productivity.
+            Fosslink connects with a wide array of popular smart home devices, platforms, and protocols, allowing you to build a truly unified and intelligent home.
           </p>
         </div>
         
-        <!-- Integration Categories -->
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-          <a href="#all" class="px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 font-medium text-sm hover:bg-primary-200 dark:hover:bg-primary-800 transition-colors">
-            All Integrations
-          </a>
-          <a href="#crm" class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-            CRM & Sales
-          </a>
-          <a href="#marketing" class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-            Marketing
-          </a>
-          <a href="#productivity" class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-            Productivity
-          </a>
-          <a href="#communication" class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-            Communication
-          </a>
-          <a href="#developer" class="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-            Developer Tools
-          </a>
-        </div>
+        {/* --- Category Filters Removed --- */}
+        {/* <div class="flex flex-wrap justify-center gap-4 mb-12"> ... </div> */}
         
-        <!-- Integration Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <!-- Integration Card -->
-          <div class="card p-6 border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" alt="Slack" class="w-16 h-16 mb-4" />
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Slack</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Get notifications and updates directly in your Slack channels. Share reports and collaborate with your team.
-            </p>
-            <div class="mt-auto">
-              <a href="#" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">Learn More</a>
-            </div>
-          </div>
+        {/* Integration Grid */}
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mb-16"> {/* Adjusted grid columns */}
           
-          <!-- Integration Card -->
-          <div class="card p-6 border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Workspace" class="w-16 h-16 mb-4" />
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Google Workspace</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Sync with Google Calendar, import data from Google Sheets, and export reports to Google Drive.
-            </p>
-            <div class="mt-auto">
-              <a href="#" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">Learn More</a>
+          {/* Loop through integrations data */}
+          {integrations.map(integration => (
+            // Updated Card Structure: Centered content, no "Learn More"
+            <div class="card p-6 border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center rounded-lg transition-shadow hover:shadow-md dark:bg-secondary-900">
+              <img 
+                  src={integration.logoUrl} 
+                  alt={`${integration.name} Logo`} 
+                  class="w-16 h-16 mb-4 object-contain rounded-lg" 
+                  loading="lazy" 
+                  width="64" height="64" 
+              />
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{integration.name}</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm flex-grow">{integration.description}</p> {/* flex-grow helps align heights */}
+              {/* Removed Learn More Link and mt-auto div */}
             </div>
-          </div>
+          ))}
           
-          <!-- Integration Card -->
-          <div class="card p-6 border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg" alt="Salesforce" class="w-16 h-16 mb-4" />
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Salesforce</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Integrate with Salesforce to sync customer data, track opportunities, and streamline your sales process.
-            </p>
-            <div class="mt-auto">
-              <a href="#" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">Learn More</a>
-            </div>
-          </div>
-          
-          <!-- Integration Card -->
-          <div class="card p-6 border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-16 h-16 mb-4" />
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">GitHub</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Connect your GitHub repositories to track issues, pull requests, and code changes within Sassify.
-            </p>
-            <div class="mt-auto">
-              <a href="#" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">Learn More</a>
-            </div>
-          </div>
-          
-          <!-- Integration Card -->
-          <div class="card p-6 border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-16 h-16 mb-4" />
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Figma</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Connect Sassify with Figma to sync designs and collaborate with your team.
-            </p>
-            <div class="mt-auto">
-              <a href="#" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">Learn More</a>
-            </div>
-          </div>
-          
-          <!-- Integration Card -->
-          <div class="card p-6 border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira" class="w-16 h-16 mb-4" />
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Jira</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              Sync your Jira issues and projects with Sassify to keep your development and business teams aligned.
-            </p>
-            <div class="mt-auto">
-              <a href="#" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">Learn More</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="text-center mb-16">
-          <a href="#" class="btn-outline">
-            View All Integrations
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
-          </a>
-        </div>
-        
-        <!-- API Section -->
-        <div class="border-t border-gray-200 dark:border-gray-700 pt-16">
-          <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <span class="inline-block px-4 py-1 rounded-full bg-secondary-100 dark:bg-secondary-900 text-secondary-600 dark:text-secondary-300 font-medium text-sm mb-4">
-                Developer API
-              </span>
-              <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Build Custom Integrations</h2>
-              <p class="text-gray-600 dark:text-gray-300 mb-6">
-                Our comprehensive API allows you to build custom integrations and extend Sassify's functionality to meet your specific needs. With detailed documentation and developer support, you can create seamless connections between Sassify and your internal tools.
-              </p>
-              <div class="space-y-4 mb-8">
-                <div class="flex items-start">
-                  <svg class="w-5 h-5 text-green-500 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <p class="text-gray-600 dark:text-gray-300">RESTful API with comprehensive endpoints</p>
-                </div>
-                <div class="flex items-start">
-                  <svg class="w-5 h-5 text-green-500 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <p class="text-gray-600 dark:text-gray-300">Secure authentication with OAuth 2.0</p>
-                </div>
-                <div class="flex items-start">
-                  <svg class="w-5 h-5 text-green-500 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <p class="text-gray-600 dark:text-gray-300">Webhooks for real-time event notifications</p>
-                </div>
-                <div class="flex items-start">
-                  <svg class="w-5 h-5 text-green-500 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <p class="text-gray-600 dark:text-gray-300">SDKs for popular programming languages</p>
-                </div>
-              </div>
-              <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#" class="btn-primary">API Documentation</a>
-                <a href="#" class="btn-secondary">Developer Portal</a>
-              </div>
-            </div>
-            <div class="rounded-lg overflow-hidden shadow-xl">
-              <div class="bg-gray-900 text-white p-4 font-mono text-sm">
-                <div class="flex items-center mb-4">
-                  <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
-                  <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-                  <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <pre class="text-green-400">
-# Example API Request
-curl -X GET \
-  https://api.sassify.com/v1/users \
-  -H 'Authorization: Bearer YOUR_API_KEY' \
-  -H 'Content-Type: application/json'
-                </pre>
-                <pre class="text-blue-400 mt-4">
-# Response
-{`
-  "users": [
-    {
-      "id": "usr_123456",
-      "name": "John Doe",
-      "email": "john@example.com",
-      "created_at": "2023-06-15T10:30:00Z",
-      "status": "active"
-    },
-    {
-      "id": "usr_789012",
-      "name": "Jane Smith",
-      "email": "jane@example.com",
-      "created_at": "2023-06-10T14:20:00Z",
-      "status": "active"
-    }
-  ],
-  "meta": {
-    "total": 2,
-    "page": 1,
-    "per_page": 10
-  }
-`}
-                </pre>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div> {/* End Grid */}
+
       </div>
     </section>
   </main>

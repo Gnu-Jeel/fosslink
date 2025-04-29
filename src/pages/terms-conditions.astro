@@ -1,76 +1,134 @@
 ---
+// src/pages/terms-conditions.astro
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeroSection from '../components/HeroSection.astro';
+
+// Get current date for update timestamp if needed, or set manually
+const lastUpdatedDate = "April 29, 2025"; // Example: Set manually or fetch dynamically
 ---
 
-<Layout title="Terms & Conditions - Sassify">
+<Layout title="Terms & Conditions - Fosslink" description="Read the Terms and Conditions for using Fosslink's website and home automation services.">
   <Header />
   <main>
-    <HeroSection 
-      title="Terms & Conditions" 
+    <HeroSection
+      title="Terms & Conditions"
       highlightText="Terms"
-      description="Please read these terms and conditions carefully before using our service."
+      description={`Last updated: ${lastUpdatedDate}`}
     />
-    
-    <section class="py-12 bg-white dark:bg-gray-800">
+
+    <section class="py-16"> {/* Removed background color, inherits from layout */}
       <div class="container-custom">
-        <div class="prose prose-lg dark:prose-invert max-w-4xl mx-auto">
-          <h2>1. Introduction</h2>
-          <p>
-            Welcome to Sassify. These Terms & Conditions govern your use of our website and services. By accessing or using our services, you agree to be bound by these Terms.
+         {/* Added leading-relaxed for better readability */}
+        <div class="max-w-3xl mx-auto prose dark:prose-invert prose-headings:font-display prose-headings:font-semibold prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-img:rounded-lg leading-relaxed">
+
+          {/* --- SECTION 1 --- */}
+          <h2 class="mt-0 mb-4">1. Introduction</h2> {/* Removed default mt-0 from prose */}
+          <p class="mb-8">
+            Welcome to Fosslink ("we", "us", "our"). These Terms & Conditions ("Terms") govern your use of our website (fosslink.in) ("Site") and the home automation design, consultation, installation, equipment supply, configuration, and support services we offer ("Services"). By accessing our Site or engaging our Services, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service.
           </p>
-          
-          <h2>2. Definitions</h2>
-          <p>
-            "Service" refers to the Sassify platform and all related services.
-            "User" refers to any individual or entity that accesses or uses our Service.
-            "Content" refers to all information and materials available on our Service.
+
+          {/* --- SECTION 2 --- */}
+          <h2 class="mt-10 mb-4">2. Definitions</h2>
+          <ul class="space-y-2 mb-8"> {/* Added spacing */}
+            <li><strong>"Service(s)"</strong> refers to the Fosslink website, consultation, system design, equipment supply, installation, configuration, maintenance, and support related to home automation systems offered by Fosslink.</li>
+            <li><strong>"Site"</strong> refers to the Fosslink website located at fosslink.in.</li>
+            <li><strong>"User", "You", "Your"</strong> refers to any individual or entity that accesses the Site or inquires about or uses our Services.</li>
+            <li><strong>"Customer"</strong> refers to a User who has engaged Fosslink for paid Services, such as installation or equipment purchase.</li>
+            <li><strong>"System"</strong> refers to the home automation hardware, software, and configurations installed or managed by Fosslink as part of the Services.</li>
+            <li><strong>"Content"</strong> refers to all information, text, graphics, logos, and materials available on our Site or provided as part of our Services.</li>
+          </ul>
+
+          {/* --- SECTION 3 (Placeholder - Needs Legal Input) --- */}
+          <h2 class="mt-10 mb-4">3. Service Engagement, Quotes, and Orders</h2>
+          <p class="mb-4">
+            To engage our Services (beyond Browse the Site), you may request consultations or quotes. All quotes provided by Fosslink are valid for a specified period. Engaging our installation or equipment supply services typically requires acceptance of a formal proposal or service agreement, which may include specific payment terms, deposit requirements, and project scope details.
           </p>
-          
-          <h2>3. Account Registration</h2>
-          <p>
-            To use certain features of our Service, you may be required to register for an account. You agree to provide accurate and complete information during the registration process and to update such information to keep it accurate and current.
+          <p class="mb-8">
+            <em>Note: Specific terms regarding quote validity, payment schedules, deposits, cancellation policies, and changes to project scope should be detailed here, ideally referencing a separate Service Agreement provided to Customers. Consult a legal professional.</em>
           </p>
-          
-          <h2>4. User Responsibilities</h2>
-          <p>
-            You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.
+
+           {/* --- SECTION 4 (Placeholder - Needs Legal Input) --- */}
+           <h2 class="mt-10 mb-4">4. Installation and Customer Responsibilities</h2>
+           <p class="mb-4">
+             If you engage Fosslink for installation Services, you agree to provide safe and reasonable access to the installation premises during agreed-upon times. You are responsible for ensuring the availability of necessary prerequisites, such as adequate power supply and stable internet connectivity (unless specified otherwise in the service agreement).
+           </p>
+           <p class="mb-8">
+             <em>Note: Detail responsibilities related to site readiness, potential delays, handling of existing infrastructure, permissions required, and completion criteria. Consult a legal professional.</em>
+           </p>
+
+          {/* --- SECTION 5 --- */}
+          <h2 class="mt-10 mb-4">5. System Usage and User Responsibilities</h2>
+          <p class="mb-4">
+            If Fosslink installs a System for you, you are responsible for using the System in accordance with provided instructions and applicable laws. You agree not to tamper with, misuse, or attempt unauthorized modifications to the installed hardware or software configuration provided by Fosslink, as this may void warranties or service agreements.
           </p>
-          
-          <h2>5. Intellectual Property</h2>
-          <p>
-            All content, features, and functionality of our Service are owned by Sassify and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
+          <p class="mb-8">
+            You are responsible for maintaining the security of any credentials (e.g., for mobile apps or third-party platforms connected to your System) used to access or control your System. Notify Fosslink promptly of any suspected security issues.
           </p>
-          
-          <h2>6. Privacy Policy</h2>
-          <p>
-            Your use of our Service is also governed by our Privacy Policy, which is incorporated by reference into these Terms & Conditions.
+
+          {/* --- SECTION 6 --- */}
+          <h2 class="mt-10 mb-4">6. Intellectual Property</h2>
+          <p class="mb-8">
+            All Content, features, and functionality of our Site, as well as any proprietary software, configurations, or methodologies used in providing our Services, are owned by Fosslink or its licensors and are protected by copyright, trademark, and other intellectual property laws. You may not copy, modify, distribute, sell, or lease any part of our Site or protected Content without our express written permission.
           </p>
-          
-          <h2>7. Limitation of Liability</h2>
-          <p>
-            In no event shall Sassify be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses.
+
+          {/* --- SECTION 7 (Placeholder - Needs Legal Input) --- */}
+          <h2 class="mt-10 mb-4">7. Hardware, Software, and Warranty</h2>
+           <p class="mb-4">
+             Fosslink may supply hardware and software components as part of the Services. Warranty coverage for hardware is typically provided by the original equipment manufacturer (OEM) and passed through to you. Fosslink will facilitate warranty claims as per the specific terms outlined in your service agreement or proposal.
+           </p>
+           <p class="mb-8">
+             <em>Note: Specify warranty details clearly. Include disclaimers for software bugs (reasonable effort basis), compatibility issues arising after installation (e.g., OS updates), and limitations based on manufacturer warranties. Consult a legal professional.</em>
+           </p>
+
+          {/* --- SECTION 8 --- */}
+          <h2 class="mt-10 mb-4">8. Privacy Policy</h2>
+          <p class="mb-8">
+            Your use of our Site and Services is also governed by our <a href="/privacy-policy">Privacy Policy</a>, which details how we collect and handle your information. By agreeing to these Terms, you also acknowledge our Privacy Policy.
           </p>
-          
-          <h2>8. Changes to Terms</h2>
-          <p>
-            We reserve the right to modify these Terms at any time. We will provide notice of any material changes by posting the new Terms on our website. Your continued use of the Service after such modifications will constitute your acknowledgment of the modified Terms.
+
+           {/* --- SECTION 9 (Placeholder - Needs Legal Input) --- */}
+          <h2 class="mt-10 mb-4">9. Third-Party Services and Integrations</h2>
+          <p class="mb-8">
+            Our Systems may rely on or integrate with third-party services, platforms (e.g., Google Home, Amazon Alexa, internet service providers), or devices. Fosslink is not responsible for the performance, availability, policies, or security of these third-party services. Your use of such services is subject to their respective terms and conditions and privacy policies. System functionality dependent on these third parties may be affected by changes or outages beyond Fosslink's control.
           </p>
-          
-          <h2>9. Governing Law</h2>
-          <p>
-            These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.
+
+          {/* --- SECTION 10 (Placeholder - Critical Legal Input Needed) --- */}
+          <h2 class="mt-10 mb-4">10. Limitation of Liability</h2>
+          <p class="mb-4">
+            To the maximum extent permitted by applicable law, in no event shall Fosslink, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, damages resulting from System malfunction due to external factors (power surges, network outages, misuse), or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service/System; (ii) any conduct or content of any third party on the Service/System; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage.
           </p>
-          
-          <h2>10. Contact Us</h2>
-          <p>
-            If you have any questions about these Terms, please contact us at support@sassify.com.
+           <p class="mb-8">
+             <em>Note: This section is CRITICAL and requires careful drafting by a legal professional to be enforceable and appropriate for your business risks, including liability caps and specific disclaimers for home installation services.</em>
+           </p>
+
+          {/* --- SECTION 11 --- */}
+          <h2 class="mt-10 mb-4">11. Changes to Terms</h2>
+          <p class="mb-8">
+            We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide reasonable notice prior to any new terms taking effect, typically by posting the updated Terms on our Site. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms.
           </p>
+
+          {/* --- SECTION 12 --- */}
+          <h2 class="mt-10 mb-4">12. Governing Law</h2>
+          <p class="mb-8">
+            These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions. Any disputes arising out of or relating to these Terms or the Services shall be subject to the exclusive jurisdiction of the courts located in Ahmedabad, Gujarat.
+          </p>
+
+          {/* --- SECTION 13 --- */}
+          <h2 class="mt-10 mb-4">13. Contact Us</h2>
+          <p class="mb-10"> {/* Added extra margin */}
+            If you have any questions about these Terms & Conditions, please <a href="/contact">contact us</a> or email us at contact@fosslink.in.
+          </p>
+
+           {/* Legal Disclaimer */}
+           <hr class="my-6 border-gray-300 dark:border-gray-700"/>
+           <p class="text-sm italic text-gray-500 dark:text-gray-400">
+             Disclaimer: These Terms & Conditions provide a general framework. Specific details regarding services, payment, installation, warranties, and liability will be outlined in individual customer proposals or service agreements. It is essential to consult with a qualified legal professional to ensure these terms are complete, accurate, and legally compliant for Fosslink's specific business operations in India.
+           </p>
         </div>
       </div>
     </section>
   </main>
   <Footer />
-</Layout> 
+</Layout>

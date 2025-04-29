@@ -1,94 +1,112 @@
 ---
+// src/pages/privacy-policy.astro
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeroSection from '../components/HeroSection.astro';
+
+const lastUpdatedDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
-<Layout title="Privacy Policy - Sassify">
+<Layout title="Privacy Policy - Fosslink" description="Learn how Fosslink collects, uses, and protects your personal information and home automation data.">
   <Header />
   <main>
-    <HeroSection 
-      title="Privacy Policy" 
-      description="Last updated: June 1, 2023"
+    <HeroSection
+      title="Privacy Policy"
+      description={`Last updated: ${lastUpdatedDate}`}
     />
-    
+
     <section class="py-16">
       <div class="container-custom">
-        <div class="max-w-3xl mx-auto prose dark:prose-invert prose-headings:font-display prose-headings:font-semibold prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-img:rounded-lg">
-          <p class="lead">
-            At Sassify, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our service.
+        {/* Added leading-relaxed for slightly more line height within paragraphs */}
+        <div class="max-w-3xl mx-auto prose dark:prose-invert prose-headings:font-display prose-headings:font-semibold prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-img:rounded-lg leading-relaxed">
+          <p class="lead mb-6"> {/* Added bottom margin */}
+            At Fosslink ("we", "us", "our"), your privacy is important to us. This Privacy Policy explains how we handle your information when you visit our website (fosslink.in), contact us, or become a customer of our home automation services. Please read this privacy policy carefully.
           </p>
-          
-          <h2>Information We Collect</h2>
-          
-          <h3>Personal Data</h3>
-          <p>
-            We may collect personal identification information from you in a variety of ways, including, but not limited to, when you visit our site, register on the site, place an order, subscribe to the newsletter, respond to a survey, fill out a form, and in connection with other activities, services, features or resources we make available on our Site. You may be asked for, as appropriate:
+          <p class="mb-8"> {/* Added bottom margin */}
+            Our website is designed to provide information about our services. We do not use cookies or other tracking technologies to collect data about your website visit.
           </p>
-          <ul>
+
+          <h2 class="mt-10 mb-4">Information We Collect</h2> {/* Added top/bottom margin */}
+
+          <h3 class="mt-6 mb-3">Information You Voluntarily Provide</h3> {/* Added top/bottom margin */}
+          <p class="mb-4"> {/* Added bottom margin */}
+            We only collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products and services, or when you contact us directly via our contact form, email, or phone. The personal information we collect depends on the context of your interactions with us, but typically includes:
+          </p>
+          <ul class="space-y-2 mb-4"> {/* Added space between list items & bottom margin */}
             <li>Name</li>
             <li>Email address</li>
-            <li>Mailing address</li>
             <li>Phone number</li>
-            <li>Credit card information</li>
-            <li>Company information</li>
+            <li>Address or location details (if provided for service inquiries/quotes)</li>
+            <li>The content of your message or inquiry</li>
           </ul>
-          
-          <h3>Usage Data</h3>
-          <p>
-            We may also collect information on how the Service is accessed and used. This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
+           <p class="mb-8">We do not collect sensitive personal information or payment details through our website.</p> {/* Added bottom margin */}
+
+          <h3 class="mt-6 mb-3">Home Automation System Data (For Customers)</h3> {/* Added top/bottom margin */}
+           <p class="mb-4"> {/* Added bottom margin */}
+            If you become a Fosslink customer and utilize our home automation installation and related services, we will necessarily collect data related to the setup, configuration, and operation of your installed system to provide the service. This typically includes device identifiers, network information, status data (e.g., light on/off), configuration settings you choose, and diagnostic information for support.
+           </p>
+           <ul class="space-y-2 mb-4"> {/* Added space between list items & bottom margin */}
+             <li>Device identifiers, types, models, and network information.</li>
+             <li>Device status (e.g., light on/off, lock locked/unlocked, sensor active/inactive).</li>
+             <li>Environmental data from sensors (e.g., temperature, humidity, motion detection logs - content depends on specific devices installed).</li>
+             <li>Automation routines, schedules, and scene configurations you create.</li>
+             <li>System logs, error reports, and diagnostic information for troubleshooting and support.</li>
+             <li>Data related to energy consumption or usage patterns (may be anonymized or aggregated).</li>
+           </ul>
+           <p class="mb-8"> {/* Added bottom margin */}
+            Specific data collected depends heavily on the devices installed and the services utilized. We strive to minimize data collection to what is necessary for providing and improving the service. Data such as video or audio recordings from cameras or microphones is handled with heightened security and access controls, typically processed locally or encrypted in transit/rest if cloud storage is used (details provided during setup).
+           </p>
+
+          <h2 class="mt-10 mb-4">How We Use Your Information</h2> {/* Added top/bottom margin */}
+          <p class="mb-4"> {/* Added bottom margin */}
+            We use the personal information you voluntarily provide solely for the following purposes:
           </p>
-          
-          <h2>How We Use Your Information</h2>
-          <p>
-            We use the information we collect in various ways, including to:
-          </p>
-          <ul>
-            <li>Provide, operate, and maintain our website and services</li>
-            <li>Improve, personalize, and expand our website and services</li>
-            <li>Understand and analyze how you use our website and services</li>
-            <li>Develop new products, services, features, and functionality</li>
-            <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</li>
-            <li>Send you emails</li>
-            <li>Find and prevent fraud</li>
+          <ul class="space-y-2 mb-8"> {/* Added space between list items & bottom margin */}
+            <li>To respond to your inquiries, questions, and requests submitted via our contact form or direct communication.</li>
+            <li>To provide you with information, quotes, or consultations about our home automation services as requested.</li>
+            <li>To schedule and coordinate installations or service calls if you become a customer.</li>
+            <li>To facilitate the setup, configuration, and ongoing support of your home automation system if you are a customer.</li>
+            <li>To communicate with you regarding service updates or support matters (for customers).</li>
+            <li>To comply with legal requirements.</li>
           </ul>
-          
-          <h2>Cookies</h2>
-          <p>
-            We use cookies and similar tracking technologies to track the activity on our Service and hold certain information. Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device.
+           <p class="mb-8">We do not use information collected via website contact for broader marketing purposes unless you explicitly consent.</p> {/* Added bottom margin */}
+
+          {/* Cookies Section Removed */}
+
+          <h2 class="mt-10 mb-4">Data Security</h2> {/* Added top/bottom margin */}
+          <p class="mb-8"> {/* Added bottom margin */}
+            We implement administrative, technical, and physical security measures designed to protect the security of any personal information we process (primarily contact information and customer system data). However, please remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to protect your information, we cannot guarantee its absolute security against interception or misuse.
           </p>
-          <p>
-            You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.
+
+          <h2 class="mt-10 mb-4">Third-Party Services</h2> {/* Added top/bottom margin */}
+          <p class="mb-8"> {/* Added bottom margin */}
+            We generally do not share your voluntarily provided contact information with third parties, except as necessary to provide our services (e.g., coordinating with hardware suppliers for warranty if needed, or payment processors if you make a purchase) or if required by law. Details regarding data sharing specific to customer home automation systems (e.g., with cloud platforms or integrated services like Google/Alexa) are provided within customer service agreements.
           </p>
-          
-          <h2>Data Security</h2>
-          <p>
-            The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.
+
+          <h2 class="mt-10 mb-4">Children's Privacy</h2> {/* Added top/bottom margin */}
+          <p class="mb-8"> {/* Added bottom margin */}
+            Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children under 18. If we become aware that a child under 18 has provided us with personal information without parental consent, we will take steps to delete such information.
           </p>
-          
-          <h2>Third-Party Services</h2>
-          <p>
-            We may employ third-party companies and individuals to facilitate our Service, to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used. These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.
+
+          <h2 class="mt-10 mb-4">Changes to This Privacy Policy</h2> {/* Added top/bottom margin */}
+          <p class="mb-8"> {/* Added bottom margin */}
+            We may update this Privacy Policy from time to time. The updated version will be indicated by an updated "Last updated" date and the updated version will be effective as soon as it is accessible. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.
           </p>
-          
-          <h2>Children's Privacy</h2>
-          <p>
-            Our Service does not address anyone under the age of 18 ("Children"). We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your Children has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our servers.
+
+          <h2 class="mt-10 mb-4">Contact Us</h2> {/* Added top/bottom margin */}
+          <p class="mb-10"> {/* Added bottom margin */}
+            If you have any questions or comments about this Privacy Policy, please <a href="/contact">contact us</a> or email us directly at contact@fosslink.in.
           </p>
-          
-          <h2>Changes to This Privacy Policy</h2>
-          <p>
-            We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date at the top of this Privacy Policy. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
-          </p>
-          
-          <h2>Contact Us</h2>
-          <p>
-            If you have any questions about this Privacy Policy, please <a href="/contact">contact us</a>.
-          </p>
+
+           {/* Legal Disclaimer */}
+           <hr class="my-6 border-gray-300 dark:border-gray-700"/>
+           <p class="text-sm italic text-gray-500 dark:text-gray-400">
+             Disclaimer: This Privacy Policy provides a general overview of our practices regarding information collected via this website and direct contact. Specific details regarding data handling for active home automation system customers are provided in relevant service agreements. This policy should be reviewed by a qualified legal professional to ensure compliance with all applicable laws, including the Digital Personal Data Protection Act, 2023 (DPDPA) in India.
+           </p>
         </div>
       </div>
     </section>
   </main>
   <Footer />
-</Layout> 
+</Layout>

@@ -1,0 +1,72 @@
+---
+// Placeholder Image URLs - Replace with your actual images
+const newBuildImageUrl = "https://media.licdn.com/dms/image/v2/D4D12AQFYN3FFYmdd4A/article-cover_image-shrink_720_1280/B4DZXEcSsSG8AI-/0/1742757506665?e=2147483647&v=beta&t=9Ugj-CRiet_8M92RU8kTX16t-iYv-FJHTIyr7cJ0Rpw";
+const retrofitImageUrl = "https://archipro.com.au/images/cdn-images/width%3D3840%2Cquality%3D80/images/s1/article/misc/image4-v3.jpg/eyJlZGl0cyI6W3sidHlwZSI6InpwY2YiLCJvcHRpb25zIjp7ImJveFdpZHRoIjoyODgwLCJib3hIZWlnaHQiOjE4NTYsImNvdmVyIjp0cnVlLCJ6b29tV2lkdGgiOjI4ODAsInNjcm9sbFBvc1giOjUwLCJzY3JvbGxQb3NZIjo1MCwiYmFja2dyb3VuZCI6InJnYigyMDcsMjA0LDE5OSkiLCJmaWx0ZXIiOjB9fSx7InR5cGUiOiJmbGF0dGVuIiwib3B0aW9ucyI6eyJiYWNrZ3JvdW5kIjoiI2ZmZmZmZiJ9fV0sInF1YWxpdHkiOjg3LCJ0b0Zvcm1hdCI6ImpwZyJ9";
+---
+
+<section class="py-16 md:py-24 bg-white-50 dark:bg-secondary-950"> {/* Light background for contrast */}
+  <div class="container-custom mx-auto px-4">
+
+    {/* Section Heading */}
+    <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        Choose Your Path to a Smarter Home
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300">
+        Whether upgrading your current residence or building a new one, Fosslink offers tailored solutions to make your home intelligent.
+      </p>
+    </div>
+
+    {/* Two Column Layout */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-stretch">
+
+      {/* Column 1: Retrofitting */}
+      <div class="bg-white dark:bg-secondary-900 p-6 md:p-8 rounded-lg shadow-md border border-secondary-200 dark:border-secondary-800">
+        <div class="w-full aspect-video rounded-md overflow-hidden mb-6 shadow">
+          <img 
+            src={retrofitImageUrl} 
+            alt="Smart switch replacing traditional switch for home automation retrofit" 
+            class="w-full h-full object-cover" 
+            loading="lazy" 
+            width="600" 
+            height="338" 
+          />
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Upgrade Your Existing Home (Retrofit)</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Bring smart automation to your current home without major renovations. We seamlessly add intelligence behind the scenes, preserving your home's aesthetic.
+        </p>
+        <ul class="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400 text-sm md:text-base">
+          <li>Utilizes existing wiring - minimal disruption.</li>
+          <li>Focuses on smart switches, bulbs, plugs & wireless sensors.</li>
+          <li>Ideal for adding smart features room-by-room or gradually.</li>
+        </ul>
+      </div>
+
+      {/* Column 2: Build Smart */}
+      <div class="bg-white dark:bg-secondary-900 p-6 md:p-8 rounded-lg shadow-md border border-secondary-200 dark:border-secondary-800">
+         <div class="w-full aspect-video rounded-md overflow-hidden mb-6 shadow">
+          <img 
+            src={newBuildImageUrl} 
+            alt="Blueprint showing integrated smart home wiring plan" 
+            class="w-full h-full object-cover" 
+            loading="lazy" 
+            width="600" 
+            height="338" 
+           />
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Build Smart From the Ground Up</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+           Integrate smart technology deeply during your new build or renovation for a truly future-proof, connected home.
+        </p>
+         <ul class="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400 text-sm md:text-base">
+           <li>Involves planned structured wiring for reliability.</li>
+           <li>Allows for centralized panels, in-wall speakers & sensors.</li>
+           <li>Maximum potential for seamless, whole-home automation.</li>
+           <li>Enhanced Aesthetics & network performance with hidden tech.</li>
+         </ul>
+      </div>
+
+    </div> {/* End Grid */}
+  </div> {/* End Container */}
+</section>
