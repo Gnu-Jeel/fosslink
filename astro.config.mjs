@@ -17,6 +17,6 @@ export default defineConfig({
 
   adapter: netlify(),
 
-  site: 'https://www.fosslink.in',
+  site: 'https://www.fosslink.in'
 
 });
