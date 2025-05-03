@@ -34,26 +34,15 @@
 
       {/* Right Column: Video Embed */}
       <div class="relative fade-in" transition:animate="fade">
-        {/* Container remains the same: enforces aspect ratio, rounding, shadow */}
+        {/* Container that enforces aspect ratio, rounding, shadow */}
         <div class="aspect-video w-full relative overflow-hidden rounded-xl shadow-xl">
-          {/* --- Replace iframe with video tag --- */}
-          <video
-            class="absolute inset-0 w-full h-full object-cover" {/* Fills container, covers */}
-            autoplay  /* Autoplay the video */
-            loop      /* Loop the video */
-            muted     /* MUST be muted for autoplay to work reliably */
-            playsinline /* Important for playback on iOS */
-            preload="metadata" /* Hint to browser to load video metadata */
-            title="Fosslink Home Automation Introduction Video" {/* Accessible title */}
-          >
-            {/* Provide video sources - place your files in /public/videos/ */}
-            {/* Use WebM for better compression if possible, fallback to MP4 */}
-            {/* --- TODO: Replace with YOUR video file paths --- */}
-            <source src="./videos/hero-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag. {/* Fallback text */}
-          </video>
-          {/* --- End video tag --- */}
-        </div>
+          <iframe
+          src="https://player.vimeo.com/video/1081038681?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1" {/* Added autoplay=1&muted=1 */}
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+          class="absolute inset-0 w-full h-full" {/* Replaced inline style with Tailwind classes */}
+          title="Fosslink-Automation">
+        </iframe>
       </div>
     </div>
   </div>
