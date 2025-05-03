@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 import alpinejs from '@astrojs/alpinejs';
 
-import netlify from '@astrojs/netlify';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,8 +15,6 @@ export default defineConfig({
     alpinejs()
   ],
 
-  adapter: netlify(),
-
-  site: 'https://www.fosslink.in'
-
+  site: 'https://www.fosslink.in',
+  adapter: vercel()
 });
