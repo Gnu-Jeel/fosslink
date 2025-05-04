@@ -1,0 +1,30 @@
+---
+// src/layouts/BlankLayout.astro
+interface Props {
+	title?: string; // Optional title
+}
+
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="PDF Viewer" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title || 'PDF Viewer'}</title>
+    <style is:global>
+      /* Reset margin/padding and set full height for html/body */
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden; /* Hide scrollbars on the body */
+      }
+    </style>
+	</head>
+	<body>
+		<slot /> </body>
+</html>

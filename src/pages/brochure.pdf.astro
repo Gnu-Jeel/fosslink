@@ -1,0 +1,14 @@
+---
+import brochure from '../assets/brochure.pdf';
+import BlankLayout from '../layouts/BlankLayout.astro';
+---
+
+<BlankLayout title="View Brochure">
+  <iframe
+    src={brochure}  width="100%"
+    height="100%"
+    style="border: none; display: block; width: 100vw; height: 100vh;" title="PDF Viewer for Brochure"
+  >
+    <p>Your browser does not support embedding PDFs. Please <a href="/brochure.pdf" download>download the PDF</a> to view it.</p>
+  </iframe>
+</BlankLayout>
