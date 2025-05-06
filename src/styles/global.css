@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -131,7 +135,7 @@
   @apply btn border-2 border-secondary-300 dark:border-secondary-700 hover:bg-secondary-100 dark:hover:bg-secondary-800 text-secondary-900 dark:text-secondary-100;
 }
 
-@utility container-custom {
+.container-custom {
   @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
 }
 
