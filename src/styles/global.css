@@ -136,7 +136,8 @@
 }
 
 .container-custom {
-  @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  /* Let 'container' manage the max-width according to breakpoints */
+  @apply container mx-auto px-4 sm:px-6 lg:px-8;
 }
 
 @utility section {
