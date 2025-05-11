@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+
+interface ServiceItem {
+  badgeText: string;
+  badgeBgClass: string; // e.g., 'bg-primary-100 dark:bg-primary-900'
+  badgeTextClass: string; // e.g., 'text-primary-600 dark:text-primary-300'
+  title: string;
+  description: string;
+  benefits: string[];
+  imageUrl: string;
+  imageAlt: string;
+}
+
+const services: ServiceItem[] = [
+  {
+    badgeText: "Lighting Control",
+    badgeBgClass: "bg-primary-100 dark:bg-primary-900",
+    badgeTextClass: "text-primary-600 dark:text-primary-300",
+    title: "Illuminate Your Life with Smart Lighting",
+    description: "Experience effortless control over your home's ambiance. Fosslink's smart lighting solutions offer convenience, energy savings, and personalized scenes for every mood and occasion in your Ahmedabad home.",
+    benefits: ["Automated Schedules & Timers", "Voice & App Control", "Energy-Efficient LED Solutions"],
+    imageUrl: "https://images.pexels.com/photos/3797991/pexels-photo-3797991.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageAlt: "Smart lighting in a modern living room",
+  },
+  {
+    badgeText: "Security & Surveillance",
+    badgeBgClass: "bg-red-100 dark:bg-red-900/50", // Example different badge color
+    badgeTextClass: "text-red-600 dark:text-red-300",
+    title: "Enhanced Protection, Total Peace of Mind",
+    description: "Secure your Ahmedabad home with Fosslink's intelligent security systems. From smart locks and sensors to AI-powered cameras, monitor and protect your property from anywhere.",
+    benefits: ["Smart Locks & Access Control", "AI Motion & Intrusion Detection", "24/7 Remote Monitoring & Alerts"],
+    imageUrl: "https://images.pexels.com/photos/24783389/pexels-photo-24783389/free-photo-of-home-monitoring-security-camera.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageAlt: "Smart security camera monitoring a home",
+  },
+  {
+    badgeText: "Climate Control",
+    badgeBgClass: "bg-blue-100 dark:bg-blue-900/50",
+    badgeTextClass: "text-blue-600 dark:text-blue-300",
+    title: "Perfect Comfort, Effortlessly Managed",
+    description: "Maintain the ideal temperature in every room with Fosslink's smart thermostats and climate control. Enjoy optimized comfort and energy savings adapted to your Ahmedabad lifestyle.",
+    benefits: ["Smart Thermostat Integration", "AI-Powered Temperature Optimization", "Remote Climate Adjustments"],
+    imageUrl: "https://lh3.googleusercontent.com/bnrYAePLKzSpT9HN0O3yrelOVIMlzKsuOvw72RtpOfRxYfAW1treWOWOHzVSR95mjYb2Mx_3RMqGM_IVRXz1jZs=s6000-w6000-e365-rw-v0-nu",
+    imageAlt: "Smart thermostat interface",
+  },
+  {
+    badgeText: "Window Curtains & Blinds", 
+    badgeBgClass: "bg-gray-100 dark:bg-gray-700",
+    badgeTextClass: "text-gray-600 dark:text-gray-300",
+    title: "Smart Shades, Effortless Ambiance",
+    description: "Control natural light and privacy with a touch. Fosslink integrates motorized blinds and curtains into your smart home, automated by schedule, sunlight, or voice.",
+    benefits: ["Motorized Blinds & Curtains", "Sunlight & Time-Based Automation", "Privacy & Glare Reduction"],
+    imageUrl: "https://zimi.life/img/blind-room-with-blinds-down.jpg",
+    imageAlt: "Automated window blinds in a home",
+  },
+  {
+    badgeText: "Energy Solutions",
+    badgeBgClass: "bg-green-100 dark:bg-green-900/50",
+    badgeTextClass: "text-green-600 dark:text-green-300",
+    title: "Intelligent Energy Savings",
+    description: "Reduce your carbon footprint and utility bills. Fosslink optimizes energy usage by intelligently managing lights, ACs, geysers, and other appliances based on real-time needs.",
+    benefits: ["Appliance Control & Scheduling", "Real-time Energy Monitoring", "Occupancy-Based Optimization"],
+    imageUrl: "https://waareertl.com/wp-content/uploads/2024/01/solar-powered-smart-homes-embracing-the-future-of-sustainable-living.jpg",
+    imageAlt: "Energy saving dashboard or smart plug",
+  },
+  {
+    badgeText: "Home Theatre",
+    badgeBgClass: "bg-purple-100 dark:bg-purple-900/50",
+    badgeTextClass: "text-purple-600 dark:text-purple-300",
+    title: "Immersive Home Entertainment",
+    description: "Integrate your audio and video systems for a seamless entertainment experience. Control multi-room audio, home theatres, and smart TVs with ease, all part of your smart home scenes.",
+    benefits: ["Multi-Room Audio Control", "Home Theatre Automation", "Integration with Streaming Services"],
+    imageUrl: "https://casaplex.com/wp-content/uploads/2022/01/the-cabin-cinema.jpg",
+    imageAlt: "Multi-room audio speakers and smart TV",
+  },
+  {
+    badgeText: "Voice Control",
+    badgeBgClass: "bg-sky-100 dark:bg-sky-900/50",
+    badgeTextClass: "text-sky-600 dark:text-sky-300",
+    title: "Your Home, At Your Command",
+    description: "Experience the ultimate convenience with hands-free control. Fosslink seamlessly integrates with Amazon Alexa, Google Assistant, and Apple Siri for intuitive voice commands.",
+    benefits: ["Works with Alexa & Google", "Apple HomeKit & Siri Ready", "Control Scenes & Devices by Voice"],
+    imageUrl: "https://images.pexels.com/photos/1072851/pexels-photo-1072851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageAlt: "Person using voice control with smart speaker",
+  },
+  {
+    badgeText: "Customization",
+    badgeBgClass: "bg-pink-100 dark:bg-pink-900/50",
+    badgeTextClass: "text-pink-600 dark:text-pink-300",
+    title: "Automation That Adapts to You",
+    description: "From 'Movie Night' setups to 'Good Morning' routines, create personalized scenes and automations that perfectly match your family's lifestyle and daily rhythms in Ahmedabad.",
+    benefits: ["One-Tap Scene Control", "Time & Sensor Based Triggers", "Truly Personalized Experience"],
+    imageUrl: "https://community-assets.home-assistant.io/original/3X/7/8/78141e5875e20ed617a4cc0e4a5215c5876fbdea.gif",
+    imageAlt: "Tablet showing custom smart home scenes",
+  },
+];
+---
+
+<Layout title="Services - Fosslink" description="Fosslink offers a comprehensive range of home automation services designed to bring comfort, security, and efficiency to your Ahmedabad home. Explore how we can customize a solution for you.">
+  <Header />
+  <main>
+    <HeroSection 
+      title="Our Smart Home Solutions" 
+      highlightText="Solutions"
+      description="Fosslink offers a comprehensive range of home automation services designed to bring comfort, security, and efficiency to your home."
+    />
+    
+    <section class="py-16 md:py-24 bg-white dark:bg-gray-800">
+        <div class="container-custom mx-auto px-4">
+        
+          {/* Loop through the services array */}
+          {services.map((service, index) => (
+            <div class="mb-16 md:mb-24"> {/* Wrapper for each service item */}
+              <div class="grid md:grid-cols-2 gap-12 items-center">
+                {/* Text Content Column */}
+                <div class:list={[
+                  "text-content-wrapper", // Add any base classes for the text column
+                  { "md:order-2": index % 2 !== 0 } // If index is ODD, text goes to order 2
+                ]}>
+                  <span class:list={[
+                    "inline-block px-4 py-1 rounded-full font-medium text-sm mb-4",
+                    service.badgeBgClass,
+                    service.badgeTextClass
+                  ]}>
+                    {service.badgeText}
+                  </span>
+                  <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">{service.title}</h3>
+                  <p class="text-gray-600 dark:text-gray-300 mb-6">
+                    {service.description}
+                  </p>
+                  <div class="space-y-3 mb-6">
+                    {service.benefits.map(benefit => (
+                      <div class="flex items-center">
+                        <svg class="w-5 h-5 text-accent-500 dark:text-accent-400 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-700 dark:text-gray-300">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+          
+                {/* Image Column */}
+                <div class:list={[
+                  "image-column-wrapper rounded-lg overflow-hidden shadow-xl", // Add any base classes for the image column
+                  { "md:order-1": index % 2 !== 0 } // If index is ODD, image goes to order 1
+                ]}>
+                  <img
+                    src={service.imageUrl}
+                    alt={service.imageAlt}
+                    class="w-full h-auto object-cover"
+                    width="1000" height="800" loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}          
+          
+          {/* Final Call to Action (remains the same) */}
+          <div class="mt-12 md:mt-16 text-center">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Ready to Transform Your Home?</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+              Let Fosslink bring the future of living to your Ahmedabad residence. Our team is ready to design a smart home solution perfect for you.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="/contact" class="btn-primary">Request a Consultation</a>
+              <a href="/features" class="btn-secondary">Explore All Features</a>
+            </div>
+          </div>
+  
+        </div>
+      </section>
+  </main>
+  <Footer />
+</Layout> 
