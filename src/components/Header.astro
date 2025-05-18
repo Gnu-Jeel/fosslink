@@ -12,20 +12,47 @@ const allPages = [
   { text: "404 Page", url: "/404" }
 ];
 ---
-<header class="fixed w-full bg-white/90 dark:bg-secondary-950/90 backdrop-blur-xs z-50 py-4 transition-colors duration-300">
+<header
+  x-data="{ currentPath: window.location.pathname }"
+  class="fixed w-full bg-white/90 dark:bg-secondary-950/90 backdrop-blur-xs z-50 py-4 transition-colors duration-300"
+>
   <div class="container-custom flex items-center justify-between px-4 ">
     <a href="/" class="flex items-center" aria-label="Go to homepage">
       <img src="/favicon.svg" width="32" height="32">
-      <span class="ml-2 text-xl font-display font-semibold text-secondary-900 dark:text-white">Fosslink</span>
+      <span class="ml-2 text-2xl font-display font-semibold text-secondary-900 dark:text-white">Fosslink</span>
     </a>
     
     <nav class="hidden md:flex items-center space-x-8">
-      <a href="/" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Home</a>
-      <a href="/services" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Services</a>
-      <a href="/features" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Features</a>
-      <a href="/integrations" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Integrations</a>
-      <a href="/company" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">About</a>
-      <a href="/contact" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Contact</a>
+      <a
+        href="/"
+        class="font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400"
+        :class="currentPath === '/' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-600 dark:text-secondary-300'"
+      >Home</a>
+      <a
+        href="/services"
+        class="font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400"
+        :class="currentPath === '/services' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-600 dark:text-secondary-300'"
+      >Services</a>
+      <a
+        href="/features"
+        class="font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400"
+        :class="currentPath === '/features' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-600 dark:text-secondary-300'"
+      >Features</a>
+      <a
+        href="/integrations"
+        class="font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400"
+        :class="currentPath === '/integrations' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-600 dark:text-secondary-300'"
+      >Integrations</a>
+      <a
+        href="/company"
+        class="font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400"
+        :class="currentPath === '/company' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-600 dark:text-secondary-300'"
+      >About</a>
+      <a
+        href="/contact"
+        class="font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400"
+        :class="currentPath === '/contact' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-600 dark:text-secondary-300'"
+      >Contact</a>
     </nav>
     
     <div class="flex items-center space-x-4">
@@ -42,8 +69,7 @@ const allPages = [
         </svg>
       </button>
             
-      <!-- Mobile Menu Button and Dropdown -->
-      <div x-data="{ open: false, showAllPages: false }">
+      <div x-data="{ open: false, showAllPages: false }"> {/* currentPath from parent header x-data is accessible here */}
         <button 
           @click="open = !open"
           class="md:hidden p-2 rounded-md text-secondary-600 hover:text-secondary-900 dark:text-secondary-300 dark:hover:text-white focus:outline-hidden focus:ring-2 focus:ring-primary-500"
@@ -68,12 +94,36 @@ const allPages = [
           class="absolute top-16 right-4 w-48 py-2 bg-white dark:bg-secondary-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden"
           x-cloak
         >
-          <a href="/" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Home</a>
-          <a href="/services" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Services</a>
-          <a href="/features" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Features</a>
-          <a href="/integrations" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Integrations</a>
-          <a href="/company" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">About</a>
-          <a href="/contact" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Contact</a>
+          <a
+            href="/"
+            class="block px-4 py-2 text-sm hover:bg-secondary-100 dark:hover:bg-secondary-800"
+            :class="currentPath === '/' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-700 dark:text-secondary-300'"
+          >Home</a>
+          <a
+            href="/services"
+            class="block px-4 py-2 text-sm hover:bg-secondary-100 dark:hover:bg-secondary-800"
+            :class="currentPath === '/services' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-700 dark:text-secondary-300'"
+          >Services</a>
+          <a
+            href="/features"
+            class="block px-4 py-2 text-sm hover:bg-secondary-100 dark:hover:bg-secondary-800"
+            :class="currentPath === '/features' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-700 dark:text-secondary-300'"
+          >Features</a>
+          <a
+            href="/integrations"
+            class="block px-4 py-2 text-sm hover:bg-secondary-100 dark:hover:bg-secondary-800"
+            :class="currentPath === '/integrations' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-700 dark:text-secondary-300'"
+          >Integrations</a>
+          <a
+            href="/company"
+            class="block px-4 py-2 text-sm hover:bg-secondary-100 dark:hover:bg-secondary-800"
+            :class="currentPath === '/company' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-700 dark:text-secondary-300'"
+          >About</a>
+          <a
+            href="/contact"
+            class="block px-4 py-2 text-sm hover:bg-secondary-100 dark:hover:bg-secondary-800"
+            :class="currentPath === '/contact' ? 'text-primary-600 dark:text-primary-400' : 'text-secondary-700 dark:text-secondary-300'"
+          >Contact</a>
         </div>
       </div>
     </div>
