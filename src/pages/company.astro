@@ -219,28 +219,48 @@ import HeroSection from "../components/HeroSection.astro";
         </div>
 
         {/* Leadership Team Section */}
-        <div class="flex flex-wrap justify-center gap-8">
-  
-          {/* Founder 1: Jeel Desai */}
-          <div class="text-center max-w-[250px]">
-            <div class="rounded-full overflow-hidden w-32 h-32 mx-auto mb-4 shadow-lg">
-              <img
-                src="./about/jeel-desai.jpg"
-                alt="Jeel Desai: Founder & CTO of Fosslink"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">
-              Jeel Desai
-            </h3>
-            <p class="text-primary-600 dark:text-primary-400 mb-2">
-              <a
-                href="https://jeeldesai.com"
-                target="_blank"
-                rel="noopener noreferrer">Founder & Developer</a>
+        <div class="mb-24">
+          <div class="text-center mb-12">
+            {/* Updated Headline */}
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Meet the Founder
+            </h2>
+            {/* Updated Paragraph */}
+            <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              I love to bring my technical expertise and a passion for
+              creating smarter, simpler homes.
             </p>
           </div>
-        
+
+          {
+            /* --- TODO: Update with real founder(s) info. Add/remove blocks as needed --- */
+          }
+          {/* --- Leadership Team Grid --- */}
+          {/* Use justify-items-center for better alignment when items wrap */}
+          <div class="flex flex-wrap justify-center gap-8">
+  
+            {/* Founder 1: Jeel Desai */}
+            <div class="text-center max-w-[250px]">
+              <div class="rounded-full overflow-hidden w-32 h-32 mx-auto mb-4 shadow-lg">
+                <img
+                  src="./about/jeel-desai.jpg"
+                  alt="Jeel Desai: Founder & CTO of Fosslink"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+                Jeel Desai
+              </h3>
+              <p class="text-primary-600 dark:text-primary-400 mb-2">
+                <a
+                  href="https://jeeldesai.com"
+                  target="_blank"
+                  rel="noopener noreferrer">Founder & Developer</a>
+              </p>
+            </div>
+          
+          </div>
+          {/* --- End Leadership Team Grid --- */}
         </div>
       </div>
     </section>
