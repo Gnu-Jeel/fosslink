@@ -3,7 +3,7 @@ export { r as renderers } from '../../chunks/internal_BsTt5pTQ.mjs';
 const prerender = false;
 async function POST({ request }) {
   {
-    console.error("Server configuration error: GOOGLE_APPS_SCRIPT_URL is not set.");
+    console.error("Server configuration error: contact form environment variables are not set.");
     return new Response(JSON.stringify({ message: "Server configuration error." }), {
       status: 500,
       headers: { "Content-Type": "application/json" }

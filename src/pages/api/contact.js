@@ -7,8 +7,8 @@ const appsScriptSecret = import.meta.env.APPS_SCRIPT_SECRET; // Your secret toke
 // Export the POST function for the API route
 export async function POST({ request }) {
   // Check if the Apps Script URL is configured on the server
-  if (!appsScriptUrl) {
-    console.error("Server configuration error: GOOGLE_APPS_SCRIPT_URL is not set.");
+  if (!appsScriptUrl || !appsScriptSecret) {
+    console.error("Server configuration error: contact form environment variables are not set.");
     return new Response(JSON.stringify({ message: 'Server configuration error.' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
@@ -51,11 +51,21 @@ export async function POST({ request }) {
       // redirect: 'follow', // Usually not needed for POST to Apps Script unless explicitly configured
     });
 
-    // Parse the response from Google Apps Script
-    const result = await response.json();
+    // Apps Script can return a non-JSON error page, so parse defensively.
+    const responseText = await response.text();
+    let result;
+    try {
+      result = JSON.parse(responseText);
+    } catch {
+      console.error('Apps Script returned a non-JSON response:', response.status);
+      return new Response(JSON.stringify({ message: 'Failed to send message. Please try again later.' }), {
+        status: 502,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
 
     // Check the result from Apps Script
-    if (result.result === 'success') {
+    if (response.ok && result.result === 'success') {
       // Send success response back to the frontend form
       return new Response(JSON.stringify({ message: 'Message sent successfully!' }), {
         status: 200,
