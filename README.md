@@ -80,6 +80,17 @@ Custom animations are included:
 3. Start the development server with `npm run dev` or `pnpm dev`
 4. Visit `http://localhost:4321` to see your site
 
+### Contact form configuration
+
+The contact form sends submissions through the server endpoint at `/api/contact`, which forwards them to Google Apps Script. Copy `.env.example` to `.env` and set both values before testing locally:
+
+```env
+GOOGLE_APPS_SCRIPT_URL=https://script.google.com/macros/s/your-deployment-id/exec
+APPS_SCRIPT_SECRET=your-shared-secret
+```
+
+For Vercel, add the same variables under **Project Settings > Environment Variables** for the environments being deployed, then redeploy. These values must match the Apps Script web app configuration; do not expose them as `PUBLIC_` variables.
+
 ## 📝 License
 
 MIT
