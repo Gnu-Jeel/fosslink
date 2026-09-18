@@ -1,8 +1,8 @@
 // Get environment variables (make sure they are set in your deployment environment too!)
 // Ensure your project is configured to load .env files (Astro does this by default)
 export const prerender = false;
-const appsScriptUrl = import.meta.env.GOOGLE_APPS_SCRIPT_URL;
-const appsScriptSecret = import.meta.env.APPS_SCRIPT_SECRET; // Your secret token
+const appsScriptUrl = process.env.GOOGLE_APPS_SCRIPT_URL;
+const appsScriptSecret = process.env.APPS_SCRIPT_SECRET;
 
 // Export the POST function for the API route
 export async function POST({ request }) {
